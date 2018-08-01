@@ -1,0 +1,130 @@
+<div class="container" *ngIf="!isAddScreen">
+  <!-- <button type="button" [routerLink]="['/add-template']" class="btn btn-info btn-sm" data-toggle="modal" data-target="#bootstrapModel">Add</button> -->
+  <!-- <button type="button" (click)="isAddScreen=true" class="btn btn-info btn-sm">Add</button> -->
+  <button type="button" (click)="addModal(domainOps)" class="btn btn-info btn-sm">Add</button>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Category</th>
+        <th>Subcategory</th>
+        <th>Template</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>{{data | json}}
+      <tr *ngFor="let data of templateArray; let i= index">
+        <!-- <tr> -->
+        <td>{{data?._id}}</td>
+        <td>{{data?.category}}</td>
+        <td>{{data?.subCategory}}</td>
+        <td>{{data?.template}}</td>
+        <td>
+          <a (click)="onEditClick(i); addModal(domainOps)">Edit /</a>
+          <a (click)="onDeleteClick(data?._id)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- <div *ngIf="isAddScreen">
+  <form [formGroup]="mainForm">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Category</label>
+      <div class="col-sm-4">
+        <input type="text" formControlName="category" class="form-control">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Subcatgory</label>
+      <div class="col-sm-4">
+        <input type="text" formControlName="subCategory" class="form-control">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Template Name</label>
+      <div class="col-sm-4">
+        <input type="text" formControlName="templateName" class="form-control">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Template</label>
+      <div class="col-sm-4">
+        <textarea formControlName="template" class="form-control"></textarea>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onSaveClick()">Save</button>
+    <button class="btn btn-secondary" (click)="isAddScreen=false">Cancel</button>
+  </form>
+</div> -->
+
+<ng-template #domainOps let-c="close " let-d="dismiss">
+  <div class="modal-header bg-dark text-white p-2">
+    <h5 class="modal-title">{{operation}} Domain</h5>
+  </div>
+  <div class="modal-body p-3">
+    <form [formGroup]="mainForm">
+      <div class="form-group">
+        <label class="col-sm-4 col-form-label">Category</label>
+        <!-- <input type="text" formControlName="category" class="form-control">         -->
+
+        <select formControlName="category" class="form-control">
+          <option value="cat1">cat1</option>
+          <option value="cat2">cat2</option>
+          <option value="cat3">cat3</option>
+          <option value="cat4">cat4</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-4 col-form-label">Subcatgory</label>
+        <!-- <input type="text" formControlName="subCategory" class="form-control">            -->
+        <select formControlName="subCategory" class="form-control">
+          <option value="subcat1">subcat1</option>
+          <option value="subcat2">subcat2</option>
+          <option value="subcat3">subcat3</option>
+          <option value="subcat4">subcat4</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-4 col-form-label">Template Name</label>
+        <input type="text" formControlName="templateName" class="form-control">
+      </div>
+      <div class="form-group">
+        <label class="col-sm-4 col-form-label">Template</label>
+        <textarea formControlName="template" class="form-control"></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer p-3 bg-light">
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="onSaveClick(); c('Close click')">Save</button>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+    </div>
+  </div>
+</ng-template>
+
+
+<!-- <button type="button" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+
+<!-- <div id="bootstrapModel" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header section</h4>
+      </div>
+      <div class="modal-body">
+        <p>body text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- <button (click)="addModal(domainOps)">add modal</button> -->
