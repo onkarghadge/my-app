@@ -1,0 +1,53 @@
+<!-- <nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
+  <a class="navbar-brand" href="">BLUE DART</a>
+  <button class="navbar-toggler hidden-sm-up" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" data-target="#navbarsDefault"
+    aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown" ngbDropdown>
+        <span class="nav-link dropdown-toggle" id="id01" [routerLink]="['']" ngbDropdownToggle>Replay</span>
+        <div class="dropdown-menu" aria-labelledby="id01" ngbDropdownMenu>
+          <a class="dropdown-item">Replay</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" ngbDropdown>
+        <span class="nav-link dropdown-toggle" id="id01" [routerLink]="['']" ngbDropdownToggle>SMS</span>
+        <div class="dropdown-menu" aria-labelledby="id01" ngbDropdownMenu>
+          <a class="dropdown-item">Partner Mapping</a>
+          <a class="dropdown-item">Status Mapping</a>
+          <a class="dropdown-item" [routerLink]="['/template']">Template</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav> -->
+
+<div>
+  <div class="row">
+    <nav class="background-color:silver">
+      <ul class="navbar-nav" style="height: -webkit-fill-available;">
+        <a style="color:blue" class="navbar-brand">BLUE <a style="color:forestgreen" class="navbar-brand">DART</a></a>
+        <li class="nav-item dropdown" ngbDropdown>
+          <span class="nav-link dropdown-toggle" id="id01" ngbDropdownToggle>Replay</span>
+          <div class="dropdown-menu" aria-labelledby="id01" ngbDropdownMenu>
+            <a class="dropdown-item">Replay</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+          <span class="nav-link dropdown-toggle" id="id01" ngbDropdownToggle>SMS</span>
+          <div class="dropdown-menu" aria-labelledby="id01" ngbDropdownMenu>
+            <a class="dropdown-item">Partner Mapping</a>
+            <a class="dropdown-item">Status Mapping</a>
+            <a class="dropdown-item" [routerLink]="['/template']">Template</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="col-md-9">
+      <!-- <h1>Your HTML!!!</h1> -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
